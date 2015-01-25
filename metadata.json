@@ -1,0 +1,14 @@
+{
+  "name": "arjenderijke-monetdb",
+  "version": "0.0.1",
+  "author": "arjenderijke",
+  "summary": "Puppet module for MonetDB",
+  "license": "Apache 2.0",
+  "source": "https://github.com/arjenderijke/puppet-monetdb",
+  "project_page": "https://github.com/arjenderijke/puppet-monetdb",
+  "issues_url": "https://github.com/arjenderijke/puppet-monetdb/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
