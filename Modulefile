@@ -1,4 +1,4 @@
-name         'puppet-monetdb'
+name         'arjenderijke-monetdb'
 version      '0.0.1'
 source       'https://github.com/arjenderijke/puppet-monetdb'
 author       'arjenderijke'

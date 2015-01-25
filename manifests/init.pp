@@ -24,7 +24,7 @@
 # === Examples
 #
 #  class { monetdb:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ]
+#    install_clients => [ 'php', 'odbc' ]
 #  }
 #
 # === Authors
@@ -35,7 +35,26 @@
 #
 # Copyright 2015 Arjen de Rijke
 #
-class monetdb {
+class monetdb (
+  install_repo    = $monetdb::params::install_repo,
+  install_clients = $monetdb::params::install_clients,
+  install_devel   = $monetdb::params::install_devel,
+  enable_service  = $monetdb::params::enable_service,
+  dbfarm          = $monetdb::params::dbfarm,
+  user            = $monetdb::params::user,
+  password        = $monetdb::params::password,
+) inherits monetdb::config {
+  validate_bool($install_repo)
+  validate_array($install_clients)
+  validate_bool($install_devel)
+  validate_bool($enable_service)
+  validate_absolute_path($dbfarm)
+  validate_string($password)
 
-
+  anchor { 'monetdb::begin': } ->
+    class { '::monetdb::install_repo': } ->
+    class { '::monetdb::install': } ->
+    class { '::monetdb::config': } ~>
+    class { '::monetdb::service': } ->
+  anchor { 'monetdb::end': }
 }
