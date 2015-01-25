@@ -1,0 +1,7 @@
+language: ruby
+rvm: 2.0.0
+notifications:
+  email:
+    - arjenderijke@gmail.com
+env:
+  - PUPPET_VERSION=3.4.3
