@@ -36,20 +36,20 @@
 # Copyright 2015 Arjen de Rijke
 #
 class monetdb (
-  install_repo    = $monetdb::params::install_repo,
-  install_clients = $monetdb::params::install_clients,
-  install_devel   = $monetdb::params::install_devel,
-  enable_service  = $monetdb::params::enable_service,
-  dbfarm          = $monetdb::params::dbfarm,
-  user            = $monetdb::params::user,
-  password        = $monetdb::params::password,
+  $install_repo    = $monetdb::params::install_repo,
+  $install_clients = $monetdb::params::install_clients,
+  $install_devel   = $monetdb::params::install_devel,
+  $enable_service  = $monetdb::params::enable_service,
+  $dbfarm          = $monetdb::params::dbfarm,
+  $user            = $monetdb::params::user,
+  $password        = $monetdb::params::password,
 ) inherits monetdb::params {
   validate_bool($install_repo)
   validate_array($install_clients)
   validate_bool($install_devel)
   validate_bool($enable_service)
   if ($dbfarm == undef) {
-    $dbfarm_dir = "/var/lib/monetdb/dbfarm"
+    $dbfarm_dir = '/var/lib/monetdb/dbfarm'
   }
   validate_absolute_path($dbfarm_dir)
   validate_string($password)
