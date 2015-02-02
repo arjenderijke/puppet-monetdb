@@ -5,7 +5,7 @@ describe 'monetdb' do
   it do
     should contain_service('monetdbd').with(
                                                   'ensure' => 'running',
-                                                  'enable' => true,
+                                                  'enable' => true
                                                   )
   end
 end
