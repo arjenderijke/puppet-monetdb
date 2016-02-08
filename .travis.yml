@@ -4,4 +4,4 @@ notifications:
   email:
     - arjenderijke@gmail.com
 env:
-  - PUPPET_VERSION=3.4.3
+  - PUPPET_VERSION=3.7.5
