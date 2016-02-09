@@ -8,4 +8,13 @@ describe 'monetdb' do
                                                   'enable' => true
                                                   )
   end
+
+  it do
+    should contain_file('/etc/yum.repos.d/monetdb.repo').with(
+                                                  'user' => 'root',
+                                                  'group' => 'root',
+                                                  'mode' => '0644'
+                                                  )
+  end
+
 end
