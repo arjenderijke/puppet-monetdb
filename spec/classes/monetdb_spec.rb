@@ -11,7 +11,7 @@ describe 'monetdb' do
 
   it do
     should contain_file('/etc/yum.repos.d/monetdb.repo').with(
-                                                  'user' => 'root',
+                                                  'owner' => 'root',
                                                   'group' => 'root',
                                                   'mode' => '0644'
                                                   )
