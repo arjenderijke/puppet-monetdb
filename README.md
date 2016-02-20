@@ -4,6 +4,8 @@ Puppet module for MonetDB
 
 This is the monetdb module.
 
+[![Build Status](https://travis-ci.org/arjenderijke/puppet-monetdb.svg?branch=master)](https://travis-ci.org/arjenderijke/puppet-monetdb)
+
 #### Table of Contents
 
 1. [Overview](#overview)
