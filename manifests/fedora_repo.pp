@@ -4,7 +4,7 @@
 # Copyright 2015 Arjen de Rijke
 #
 
-class monetdb::monetdb_repo inherits monetdb::params {
+class monetdb::fedora_repo inherits monetdb::params {
 
   yumrepo {'MonetDB $releasever - $basearch':
     ensure   => present,
