@@ -4,12 +4,14 @@
 # Copyright 2015 Arjen de Rijke
 #
 
-class monetdb::fedora_repo inherits monetdb::params {
+define monetdb::fedora_repo (
+  $enable_debug = $monetdb::params::enable_debug,
+) {
 
-  yumrepo {'MonetDB $releasever - $basearch':
+  yumrepo {'monetdb':
     ensure   => present,
-    name     => 'MonetDB $releasever - $basearch',
-    baseurl  => 'http://dev.monetdb.org/downloads/Fedora/$releasever/$basearch/',
+    name     => "MonetDB $::operatingsystemrelease - $::architecture",
+    baseurl  => "http://dev.monetdb.org/downloads/Fedora/$::operatingsystemrelease/$::architecture/",
     enabled  => true,
     gpgcheck => true,
     gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',

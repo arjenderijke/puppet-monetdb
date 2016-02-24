@@ -9,7 +9,8 @@ class monetdb::params (
   $enable_service  = true,
   $dbfarm          = undef,
   $user            = 'monetdb',
-  $password        = 'monetdb'
+  $password        = 'monetdb',
+  $enable_debug    = false
 ) {
 
 }
