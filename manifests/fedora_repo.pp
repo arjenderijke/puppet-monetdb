@@ -18,4 +18,15 @@ define monetdb::fedora_repo (
     target   => '/etc/yum.repos.d/monetdb.repo',
   }
 
+  if ($enable_debug) {
+    yumrepo {'monetdb-debuginfo':
+      ensure   => present,
+      name     => "MonetDB Debug ${::operatingsystemrelease} - ${::architecture}",
+      baseurl  => "http://dev.monetdb.org/downloads/Fedora/debug/${::operatingsystemrelease}/${::architecture}/",
+      enabled  => true,
+      gpgcheck => true,
+      gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',
+      target   => '/etc/yum.repos.d/monetdb.repo',
+    }
+  }
 }
