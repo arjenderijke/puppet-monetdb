@@ -44,12 +44,14 @@ class monetdb (
   $user            = $monetdb::params::user,
   $password        = $monetdb::params::password,
   $enable_debug    = $monetdb::params::enable_debug,
+  $enable_source   = $monetdb::params::enable_source,
 ) inherits monetdb::params {
   validate_bool($install_repo)
   validate_array($install_clients)
   validate_bool($install_devel)
   validate_bool($enable_service)
   validate_bool($enable_debug)
+  validate_bool($enable_source)
 
   if ($dbfarm == undef) {
     $dbfarm_dir = '/var/lib/monetdb/dbfarm'
