@@ -35,7 +35,7 @@ define monetdb::fedora_repo (
     yumrepo {'monetdb-source':
       ensure   => present,
       name     => "MonetDB Source ${::operatingsystemrelease} - ${::architecture}",
-      baseurl  => "http://dev.monetdb.org/downloads/Fedora/source/",
+      baseurl  => 'http://dev.monetdb.org/downloads/Fedora/source/',
       enabled  => true,
       gpgcheck => true,
       gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',
