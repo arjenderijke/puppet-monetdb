@@ -59,11 +59,8 @@ class monetdb (
   validate_absolute_path($dbfarm_dir)
   validate_string($password)
 
-  #change to contain
-  anchor { 'monetdb::begin': } ->
-    class { '::monetdb::install_repo': } ->
-    class { '::monetdb::install': } ->
-    class { '::monetdb::config': } ~>
-    class { '::monetdb::service': } ->
-  anchor { 'monetdb::end': }
+  contain ::monetdb::install_repo
+  contain ::monetdb::install
+  contain ::monetdb::config
+  contain ::monetdb::service
 }
