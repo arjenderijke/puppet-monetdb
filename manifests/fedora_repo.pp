@@ -7,6 +7,7 @@
 define monetdb::fedora_repo (
   $enable_debug = $monetdb::params::enable_debug,
   $enable_source = $monetdb::params::enable_source,
+  $enable_testing = $monetdb::params::enable_testing,
 ) {
 
   yumrepo {'monetdb':
@@ -36,6 +37,18 @@ define monetdb::fedora_repo (
       ensure   => present,
       name     => "MonetDB Source ${::operatingsystemrelease} - ${::architecture}",
       baseurl  => 'http://dev.monetdb.org/downloads/Fedora/source/',
+      enabled  => true,
+      gpgcheck => true,
+      gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',
+      target   => '/etc/yum.repos.d/monetdb.repo',
+    }
+  }
+
+  if ($enable_testing) {
+    yumrepo {'monetdb-testing':
+      ensure   => present,
+      name     => "MonetDB Testing ${::operatingsystemrelease} - ${::architecture}",
+      baseurl  => "http://dev.monetdb.org/downloads/testing/Fedora/${::operatingsystemrelease}/${::architecture}/",
       enabled  => true,
       gpgcheck => true,
       gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',

@@ -11,7 +11,8 @@ class monetdb::params (
   $user            = 'monetdb',
   $password        = 'monetdb',
   $enable_debug    = false,
-  $enable_source   = false
+  $enable_source   = false,
+  $enable_testing  = false
 ) {
 
 }
