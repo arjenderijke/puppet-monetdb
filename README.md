@@ -5,6 +5,7 @@ Puppet module for MonetDB
 This is the monetdb module.
 
 [![Build Status](https://travis-ci.org/arjenderijke/puppet-monetdb.svg?branch=master)](https://travis-ci.org/arjenderijke/puppet-monetdb)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/arjenderijke/puppet-monetdb/blob/master/LICENSE)
 
 #### Table of Contents
 
