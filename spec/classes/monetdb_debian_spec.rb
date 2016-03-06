@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'monetdb' do
 
-  context 'on centos 7.0' do
+  context 'on debian 8.0' do
     let(:facts) do
       {
         :osfamily               => 'Debian',
@@ -11,10 +11,10 @@ describe 'monetdb' do
       }
     end
 
-    it do
+    it 'should fail if the osfamily is not redhat' do
       expect {
-        should compile
-      }.to raise_error(Puppet::Error, /Operating System not supported/)
+        should compile.with_all_deps.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+      }
     end
   end
 end
