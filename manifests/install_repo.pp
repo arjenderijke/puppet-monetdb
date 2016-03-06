@@ -8,7 +8,7 @@ class monetdb::install_repo inherits monetdb::params {
 
   case $::osfamily {
     'RedHat' : {
-      fedora_repo {'monetdb_fedora_repo':
+      monetdb::fedora_repo {'monetdb_fedora_repo':
         enable_debug   => $::monetdb::params::enable_debug,
         enable_source  => $::monetdb::params::enable_source,
         enable_testing => $::monetdb::params::enable_testing,
