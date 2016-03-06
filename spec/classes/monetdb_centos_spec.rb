@@ -15,5 +15,10 @@ describe 'monetdb' do
       should compile.and_raise_error(/Operating System not supported/)
     end
 
+    it do
+      expect {
+        should compile
+      }.to raise_error(Puppet::Error, /Operating System not supported/)
+    end
   end
 end
