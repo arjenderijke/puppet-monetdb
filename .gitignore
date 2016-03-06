@@ -1,2 +1,4 @@
 *~
 spec/fixtures/modules/monetdb/
+spec/fixtures/modules/stdlib/
+spec/fixtures/manifests/
