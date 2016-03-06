@@ -54,5 +54,29 @@ define monetdb::fedora_repo (
       gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',
       target   => '/etc/yum.repos.d/monetdb.repo',
     }
+
+    if ($enable_debug) {
+      yumrepo {'monetdb-testing-debuginfo':
+        ensure   => present,
+        name     => "MonetDB Testing Debug ${::operatingsystemrelease} - ${::architecture}",
+        baseurl  => "http://dev.monetdb.org/downloads/testing/Fedora/debug/${::operatingsystemrelease}/${::architecture}/",
+        enabled  => true,
+        gpgcheck => true,
+        gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',
+        target   => '/etc/yum.repos.d/monetdb.repo',
+      }
+    }
+
+    if ($enable_source) {
+      yumrepo {'monetdb-testing-source':
+        ensure   => present,
+        name     => "MonetDB Testing Source ${::operatingsystemrelease} - ${::architecture}",
+        baseurl  => 'http://dev.monetdb.org/downloads/testing/Fedora/source/',
+        enabled  => true,
+        gpgcheck => true,
+        gpgkey   => 'https://www.monetdb.org/downloads/MonetDB-GPG-KEY',
+        target   => '/etc/yum.repos.d/monetdb.repo',
+      }
+    }
   }
 }
